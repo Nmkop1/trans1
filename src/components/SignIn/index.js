@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import { MDBInput, MDBBtn } from 'mdbreact'
 
 const SignInPage = () => (
-    <div>
-        <h1>SignIn</h1>
+    <div className="signIn">
         <SignInForm />
         <PasswordForgetLink />
         <SignUpLink />
@@ -20,33 +19,42 @@ const INITIAL_STATE = {
     email: '',
     password: '',
     error: null,
-};
+}
+
+    ;
 
 class SignInFormBase extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { ...INITIAL_STATE };
+        this.state = {
+            ...INITIAL_STATE
+        };
     }
 
     onSubmit = event => {
         const { email, password } = this.state;
 
-        this.props.firebase
-            .doSignInWithEmailAndPassword(email, password)
-            .then(() => {
-                this.setState({ ...INITIAL_STATE });
-                this.props.history.push(ROUTES.HOME);
-            })
-            .catch(error => {
-                this.setState({ error });
+        this.props.firebase.doSignInWithEmailAndPassword(email, password).then(() => {
+            this.setState({
+                ...INITIAL_STATE
             });
+            this.props.history.push(ROUTES.HOME);
+        }
+
+        ).catch(error => {
+            this.setState({
+                error
+            });
+        });
 
         event.preventDefault();
     };
 
     onChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({
+            [event.target.name]: event.target.value
+        });
     };
 
     render() {
@@ -55,33 +63,44 @@ class SignInFormBase extends Component {
         const isInvalid = password === '' || email === '';
 
         return (
-            <form onSubmit={this.onSubmit}>
-                <input
-                    name="email"
-                    value={email}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Email Address"
-                />
-                <input
-                    name="password"
-                    value={password}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="Password"
-                />
-                <button disabled={isInvalid} type="submit">
-                    Sign In
-        </button>
+            <div className="loginWrapper">
+                <div className="formLogin">
+                    <form onSubmit={this.onSubmit}
 
-                {error && <p>{error.message}</p>}
-            </form>
-        );
+                    > <h2 className="h2 text-center mb-4">Zaloguj się</h2>
+                        <div className="grey-text">
+                            <MDBInput label="Podaj email"
+                                icon="envelope"
+                                type="email"
+                                validate error="wrong"
+                                success="right"
+                                name="email"
+                                value={email}
+                                onChange={this.onChange}
+                            />
+                            <MDBInput
+                                label="Hasło"
+                                icon="lock"
+                                group type="password"
+                                validate name="password"
+                                value={password}
+                                onChange={this.onChange}
+                            /> </div>
+                        <div className="text-center">
+                            <MDBBtn
+                                disabled={isInvalid}
+                                type="submit">Login</MDBBtn>
+                            {error && <p style={{ paddingTop: 20 }}
+                            >Błędna hasło. Spróbój ponownie.</p>}
+
+                        </div>
+                    </form>
+                </div>
+            </div>);
     }
 }
 
-const SignInForm = compose(
-    withRouter,
+const SignInForm = compose(withRouter,
     withFirebase,
 )(SignInFormBase);
 

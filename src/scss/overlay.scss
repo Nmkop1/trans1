@@ -1,0 +1,153 @@
+ .modal {
+
+     left: 0;
+     height: 100vh;
+     bottom: 0;
+     width: 100%;
+     background-color: $color_4;
+     display: none;
+     color: black;
+ }
+
+ .overflay {
+     width: 100%;
+     height: 100%;
+
+     .info {
+         i {
+             color: $color_17;
+             font-size: 1.8em;
+         }
+     }
+
+     .wrapperOverflay {
+         align-items: center;
+         justify-content: center;
+         display: flex;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0, 142, 109, .5);
+         z-index: 2000;
+
+         .wrapperOverflay_ {
+             width: 90%;
+             height: 80%;
+             display: flex;
+             background-color: $color_2;
+
+
+             .jedenOverflay,
+             .dwaOverflay {
+                 width: 35%;
+                 display: flex;
+                 flex-direction: column;
+                 height: 100%;
+
+                 .dataZlecenia,
+                 .model,
+                 .vin,
+                 .firma,
+                 .kierowca,
+                 .nrDo,
+                 .nrAuto,
+                 .nrPrzyczepa,
+                 .dataZaladunku,
+                 .dataRozladunku,
+                 .cmr,
+                 .faktura,
+                 .uwagi {
+                     display: flex;
+                     justify-content: space-between;
+                     align-items: center;
+                     padding: 0 5%;
+                     widows: 100%;
+                     height: calc(100%/13);
+                     border: 1px solid rgba(0, 142, 109, .5);
+                 }
+
+
+             }
+
+             .jedenOverflay {
+                 h1 {
+                     color: $color_3;
+                     font-size: .8em;
+                 }
+             }
+
+             .dwaOverflay {
+                 width: 65%;
+                 display: flex;
+
+                 .dataZlecenia,
+                 .model,
+                 .vin,
+                 .firma,
+                 .kierowca,
+                 .nrDo,
+                 .nrAuto,
+                 .nrPrzyczepa,
+                 .dataZaladunku,
+                 .dataRozladunku,
+                 .cmr,
+                 .faktura,
+                 .uwagi {
+                     display: flex;
+                     justify-content: center;
+                     align-items: center;
+                     padding: 0 5%;
+                     widows: 100%;
+                     height: calc(100%/13);
+                     border: 1px solid rgba(0, 142, 109, .5);
+                     position: relative;
+
+                     input {
+
+                         max-width: 100%;
+                         margin-right: 10px;
+
+                     }
+
+                     span {
+                         background-color: #EDF1F4;
+                         display: block;
+
+
+                     }
+
+
+
+                     .far {
+                         position: absolute;
+                         top: 0;
+                         right: 0;
+
+                         display: block;
+
+
+                     }
+
+
+                 }
+
+                 h1 {
+                     color: $color_5;
+                 }
+             }
+         }
+     }
+
+
+
+     .close {
+         position: fixed;
+         top: 2%;
+         right: 5%;
+         color: $color_4;
+         cursor: pointer;
+     }
+ }
+
+ .visible {
+     display: block
+ }

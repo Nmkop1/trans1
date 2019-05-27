@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
-
+import { MDBInput, MDBBtn } from 'mdbreact'
 const PasswordForgetPage = () => (
-    <div>
-        <h1>PasswordForget</h1>
+    <div className="PasswordForgetForm">
+
         <PasswordForgetForm />
     </div>
 );
@@ -48,28 +48,46 @@ class PasswordForgetFormBase extends Component {
         const isInvalid = email === '';
 
         return (
-            <form onSubmit={this.onSubmit}>
-                <input
-                    name="email"
-                    value={this.state.email}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Email Address"
-                />
-                <button disabled={isInvalid} type="submit">
-                    Reset My Password
-        </button>
+            <div className="passwordForgetFormWrapper">
+                <div className="formPasswordForgetForm">
+                    <form onSubmit={this.onSubmit}>
+                        <h1 className="h5 text-center mb-4">Nie pamiętasz hasła?</h1>
+                        <p>Wyślemy do Ciebie wiadomość e-mail z linkiem do strony umożliwiającej zmianę hasła.</p>
+                        <div className="grey-text">
+                            <MDBInput
+                                label="Podaj email"
+                                icon="envelope"
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.onChange}
+                                type="text"
+                                placeholder="Email Address"
+                            />
+                        </div>
+                        <div className="text-center">
+                            <MDBBtn disabled={isInvalid} type="submit">Wyślij</MDBBtn>
+                            {error && <p>{error.message}</p>}
+                        </div>
+                    </form>
+                </div>
 
-                {error && <p>{error.message}</p>}
-            </form>
+
+
+            </div>
+
+
+
+
+
+
         );
     }
 }
 
 const PasswordForgetLink = () => (
-    <p>
-        <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
-    </p>
+
+    <Link className="passwordForget" to={ROUTES.PASSWORD_FORGET}>Zapomniałeś hasła?</Link>
+
 );
 
 export default PasswordForgetPage;

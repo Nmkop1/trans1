@@ -1,0 +1,519 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext");
+@import './scss/reset';
+@import './scss/helpers_tabela';
+@import './scss/overlay';
+
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: $color_1;
+
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navWrraper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav {
+        width: 100%;
+        background-color: $color_2;
+
+        a {
+            display: block;
+            padding: 7% 0;
+            width: 100%;
+            font-size: 1.4em;
+            text-align: center;
+            color: $color_3;
+            border-bottom: 1px solid $color_3;
+
+        }
+
+        .active {
+            color: $color_17
+        }
+    }
+}
+
+.hamburgerWrapper {
+    width: 100%;
+    height: 50px;
+    background-color: $color_17;
+    display: flex;
+    align-items: center;
+
+    i {
+        font-size: 2em;
+        padding-left: 15px
+    }
+}
+
+
+.buttonSignOut {
+    margin: 0;
+    width: 100%;
+
+    &:hover {
+        background-color: #fff;
+    }
+}
+
+.wrapperZadania {
+    padding: 3vh 0 15% 0;
+
+    .zadania_ {
+        background-color: $color_1;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h1 {
+            font-size: 1.6em;
+            text-align: center;
+            padding: 5%;
+            color: $color_4;
+            background-color: $color_17;
+        }
+
+        .zadania__ {
+            background-color: $color_1;
+            width: 90%;
+        }
+    }
+
+    .button {
+        font-size: 1.6em;
+        text-align: center;
+        padding: 5%;
+        width: 100%;
+        color: $color_4;
+        background-color: $color_17;
+        margin-bottom: 10%;
+    }
+}
+
+.spinners {
+    text-align: center;
+}
+
+.form {
+    background-color: $color_4;
+    border: 1px solid $color_1;
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+            align-self: flex-start;
+            padding: 2%;
+            color: $color_17;
+        }
+
+        label {
+            display: block;
+            width: 95%;
+
+            input {
+                margin-bottom: 2%;
+            }
+        }
+
+        .wrapperOstatnie {
+            display: flex;
+            width: 95%;
+
+            .labelOstatnie {
+                display: block;
+                width: 60%;
+                align-self: flex-start;
+            }
+
+            p {
+                color: $color_5
+            }
+        }
+    }
+
+    .wrapperCmr {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        .wrapperChecbox {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 5%;
+            flex-direction: column;
+
+
+            label {
+                display: block;
+                padding: 10px 0;
+                margin-left: 40%;
+            }
+        }
+
+
+        .overflay {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            margin-bottom: 5%;
+
+            div {
+
+
+                h1 {
+                    font-size: 1.2em;
+                    text-align: center;
+                    padding: 10%;
+                    background-color: $color_4;
+                    color: $color_17;
+
+                }
+            }
+
+        }
+
+        .fileUpload {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            margin-bottom: 5%;
+
+            .fa {
+                font-size: 2em;
+                cursor: pointer;
+                color: $color_5;
+
+                &:hover {
+                    color: $color_17;
+                    transition: .5s linear
+                }
+            }
+
+            .close {
+                color: $color_17
+            }
+        }
+
+
+    }
+
+    button {
+        font-size: 1.6em;
+        text-align: center;
+        padding: 5%;
+        width: 100%;
+        color: $color_4;
+        background-color: $color_17;
+
+
+    }
+}
+
+.fetch2 {
+    width: 100%;
+    height: 20vh;
+
+    .button {
+        padding: 20px
+    }
+}
+
+.opisListy {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 5vh;
+    font-size: .6em;
+    align-items: center;
+    border-bottom: 1px solid $color_17;
+    background-color: $color_1;
+
+
+    div:nth-child(1) {
+        width: 10%;
+    }
+
+    div:nth-child(2) {
+        width: 40%;
+    }
+
+    div:nth-child(3) {
+        flex-grow: 1
+    }
+
+    div {
+        .opis {
+            width: 100%;
+            height: 100%;
+
+            p {
+                padding: 3px 0;
+            }
+        }
+    }
+}
+
+.wrapperZadania_ {
+    padding: 5vh 0 15% 0;
+    width: 100%;
+    height: auto;
+
+    .wrapperLista {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        width: 100%;
+        color: $color_5;
+        background-color: $color_2;
+        padding: 3% 0;
+
+        border-bottom: 1px solid $color_17;
+
+        .punktListy {
+            width: 100%;
+            height: 100%;
+
+            h1 {
+                font-size: 1em;
+                padding: 2% 0;
+                color: $color_3;
+            }
+        }
+
+        .punktyListy1 {
+            width: 10%;
+            padding-left: 2%;
+
+            h1 {
+                font-size: 1.2em;
+                color: $color_17;
+            }
+        }
+
+        .punktyListy2 {
+            width: 40%;
+
+            div:nth-child(1) {
+                font-weight: 700;
+            }
+        }
+
+        .punktyListy3 {
+            width: 44%;
+        }
+
+        .punktyListy4 {
+            width: 10%;
+
+            h1 {
+                color: $color_17;
+            }
+        }
+    }
+}
+
+.tabela {
+    display: block;
+
+    @include screen('tablet') {
+
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        justify-content: center;
+    }
+}
+
+
+
+
+
+
+.header-class {
+    background-color: $color_5;
+    color: white
+}
+
+//pagination tabeli
+.react-bootstrap-table-pagination {
+    margin-right: 0;
+    display: flex;
+    width: 100%;
+
+    .react-bootstrap-table-pagination-list,
+    .col-lg-6 {
+        width: 50%;
+
+        .page-item {
+            background-color: $color_16;
+
+        }
+
+
+
+        #pageDropDown {
+            background-color: $color_17 !important;
+            padding: 8px 10px;
+            margin: 0 0020px;
+        }
+
+        .dropdown-menu {
+            background-color: $color_16;
+            min-width: auto;
+        }
+
+    }
+
+    .pagination .page-item.active .page-link {
+
+        background-color: $color_17;
+
+    }
+}
+
+.container {
+    display: flex;
+    padding: 0;
+
+
+
+    .list-group-item {
+        padding: .5rem .2rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        h1 {
+            font-size: 1.2em;
+            font-weight: 700;
+            padding-right: .5em;
+        }
+    }
+
+}
+
+.btn-outline-default {
+    color: $color_3 !important;
+    background-color: $color_2 !important;
+
+}
+
+.container .list-group-item h1 {
+    color: $color_3
+}
+
+.signIn,
+.PasswordForgetForm {
+    width: 100%;
+    flex-grow: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginWrapper,
+.passwordForgetFormWrapper {
+    background-color: $color_4;
+    padding: 40px 50px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: .25rem;
+    max-width: 500px;
+
+    .formLogin,
+    .formPasswordForgetForm {
+        margin-bottom: 5%;
+    }
+}
+
+.passwordForgetFormWrapper {
+    width: 80%;
+
+    .formPasswordForgetForm {
+
+
+        h1 {
+            font-size: 2em
+        }
+
+        p {
+            line-height: 1.4
+        }
+    }
+}
+
+.passwordForget {
+    margin-top: 5%
+}
+
+.signUp {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .signUpWrapper {
+
+        background-color: $color_4;
+        padding: 0 10%;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+            0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        border-radius: .25rem;
+
+    }
+}
+
+.btn-default {
+    background-color: $color_17 !important;
+}
+
+
+
+.passwordForget {
+    padding: 5%;
+}
+
+
+
+
+.md-form>input[type]:-webkit-autofill:not(.browser-default):not([type="search"])+label,
+.md-form>input[type=time]:not(.browser-default)+label {
+    transform: translateY(-15px);
+
+}
+
+.drawer {
+    width: 800px;
+}

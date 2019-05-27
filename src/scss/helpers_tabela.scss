@@ -1,0 +1,315 @@
+$color_5: #818181;
+$color_17:rgb(0, 145, 112);
+$color_16:#D7F0ED;
+$color_2:#EDF1F4;
+$color_3:#090909;
+$color_4:#FFFFFF;
+$color_1: #C1D3E1;
+$color-brak:transparent;
+
+// $color_5: #3e4e59;
+// $color_1: #D4B185;
+// $color_2: #C2E7F2;
+// $color_3:#fff;
+// $color_4:#D4B185;
+// $color_6:rgb(42, 42, 42);
+// $color_7: #3c4850;
+// $color_8: #3c4850;
+// $color_9:rgba(0,0,0,.8);
+
+//filtr nakładka
+@mixin over1 {
+    content: "";
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none repeat 0 0 rgba(30, 30, 30, 0.6);
+}
+
+// button
+@mixin button {
+    color: $color_3;
+    position: relative;
+    padding: 8px 20px;
+    border: 1px solid $color_kontrast;
+    @include transition;
+
+    @include screen("mobile") {
+        padding: 12px 30px;
+    }
+
+    &:hover {
+        background-color: $color_hover;
+    }
+}
+
+@mixin ham {
+    .hamburger {
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+        z-index: 1010;
+    }
+
+    .hamburger:hover {
+        cursor: pointer;
+    }
+
+    .line {
+        width: 25px;
+        height: 3px;
+        background-color: $color_1;
+        display: block;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger.is-active {
+        transform: rotate(45deg);
+    }
+
+    .hamburger:before {
+        content: "";
+        position: absolute;
+        box-sizing: border-box;
+        width: 30px;
+        height: 30px;
+        border: 2px solid transparent;
+        top: calc(50% - 15px);
+        left: calc(50% - 15px);
+        border-radius: 100%;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger.is-active:before {
+        border: 2px solid $color_1;
+    }
+
+    .hamburger.is-active .line {
+        width: 20px;
+    }
+
+    .hamburger.is-active .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.is-active .line:nth-child(1) {
+        transform: translateY(8px);
+    }
+
+    .hamburger.is-active .line:nth-child(3) {
+        transform: translateY(-8px) rotate(90deg);
+    }
+}
+
+@mixin sectionText {
+    padding: 6% 0;
+    text-align: center;
+
+
+    h1 {
+        color: $color_1;
+        font-weight: 700;
+        line-height: 110%;
+        letter-spacing: 3px;
+
+        @include screen("mobile") {
+            line-height: 140%;
+            letter-spacing: 3px;
+        }
+    }
+
+    p {
+        margin-top: 3%;
+        letter-spacing: .6px;
+
+    }
+}
+
+@mixin button {
+    background-color: $color_3;
+    margin: 5% 0;
+    text-align: center;
+    display: inline-block;
+
+    a {
+        position: relative;
+        width: 180px;
+        font-size: 1em;
+        padding: 10px 30px;
+        background-color: transparent;
+        border: 2px solid $color_1;
+        color: $color_7;
+        font-weight: 700;
+        display: block;
+        overflow: hidden;
+        transition: 0.6s linear;
+    }
+
+    a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: $color_5;
+        right: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: left 0.3s linear, height 0.2s 0.3s linear;
+        z-index: -1;
+    }
+
+    a:hover::before {
+        left: 0%;
+        height: 103%;
+    }
+
+    a:hover {
+        color: $color_4;
+        z-index: 100;
+    }
+}
+
+@mixin center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// rozmiar elementu
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+//Media queries
+@mixin screen($size) {
+    $desktop: "(min-width: 992px)";
+    $tablet: "(min-width: 768px)";
+    $mobile: "(min-width: 576px)";
+    $landscape: "(max-width: 812px )";
+
+    @if $size==desktop {
+        @media only screen and #{$desktop} {
+            @content;
+        }
+    }
+
+    @else if $size==tablet {
+        @media only screen and #{$tablet} {
+            @content;
+        }
+    }
+
+    @else if $size==mobile {
+        @media only screen and #{$mobile} {
+            @content;
+        }
+    }
+
+    @else if $size==landscape {
+        @media only screen and #{$landscape} and (orientation: landscape) {
+            @content;
+        }
+    }
+
+    @else {
+        @media only screen and #{$size} {
+            @content;
+        }
+    }
+}
+
+//przejście
+@mixin transition {
+    transition: all 0.5s ease-in-out;
+}
+
+//filtr nakładka
+@mixin over {
+    content: "";
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none repeat 0 0 rgba(30, 30, 30, 0.6);
+}
+
+//napis centrum
+@mixin centrum {
+    text-align: center;
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 1, 5rem;
+        color: $color_3;
+        position: relative;
+        margin-bottom: 3rem;
+    }
+
+    a {
+        position: relative;
+        @include button;
+        @include transition;
+        background-color: $color_kontrast;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+//Facebook
+@mixin face {
+    @include transition;
+
+    &:hover {
+        color: #29487d;
+        cursor: pointer;
+    }
+}
+
+//Twitter
+@mixin twitter {
+    @include transition;
+
+    &:hover {
+        color: #1da1f2;
+        cursor: pointer;
+    }
+}
+
+//google
+@mixin google {
+    @include transition;
+
+    &:hover {
+        color: #dc4e41;
+        cursor: pointer;
+    }
+}
+
+//instagram
+@mixin instagram {
+    @include transition;
+
+    &:hover {
+        color: #cc307c;
+        cursor: pointer;
+    }
+}
