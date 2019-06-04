@@ -21,6 +21,10 @@ import AdminPage from '../Admin';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 import Drawer from 'react-motion-drawer';
+import Zlecenie from '../Zlecenie';
+import DoWykonania from '../ZadaniaDoWykonania';
+import Wykonane from '../Wykonane';
+import Tabela from '../Tabela';
 const App = () => (
     <Router>
         <div className="wrapper">
@@ -29,11 +33,15 @@ const App = () => (
             <Route exact path={ROUTES.LANDING} component={LandingPage} />
             <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
             <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
+            <Route exact path={ROUTES.ZADANIADOWYKONANIA} component={DoWykonania} />
+            <Route exact path={ROUTES.WYKONANE} component={Wykonane} />
+            <Route exact path={ROUTES.TABELA} component={Tabela} />
             <Route
                 exact
                 path={ROUTES.PASSWORD_FORGET}
                 component={PasswordForgetPage}
             />
+            <Route path={ROUTES.ZLECENIE} component={Zlecenie} />
             <Route exact path={ROUTES.HOME} component={HomePage} />
             <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
             <Route exact path={ROUTES.ADMIN} component={AdminPage} />

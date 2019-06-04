@@ -52,6 +52,9 @@ body {
     background-color: $color_17;
     display: flex;
     align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
 
     i {
         font-size: 2em;
@@ -61,7 +64,7 @@ body {
 
 
 .buttonSignOut {
-    margin: 0;
+    margin-bottom: 50px;
     width: 100%;
 
     &:hover {
@@ -69,42 +72,43 @@ body {
     }
 }
 
-.wrapperZadania {
-    padding: 3vh 0 15% 0;
 
-    .zadania_ {
-        background-color: $color_1;
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+.zadania_ {
+    background-color: $color_1;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5% 0;
 
-        h1 {
-            font-size: 1.6em;
-            text-align: center;
-            padding: 5%;
-            color: $color_4;
-            background-color: $color_17;
-        }
-
-        .zadania__ {
-            background-color: $color_1;
-            width: 90%;
-        }
-    }
-
-    .button {
+    h1 {
         font-size: 1.6em;
         text-align: center;
         padding: 5%;
-        width: 100%;
         color: $color_4;
         background-color: $color_17;
-        margin-bottom: 10%;
+
+    }
+
+    .zadania__ {
+        background-color: $color_1;
+        width: 90%;
     }
 }
+
+.button {
+    font-size: 1.6em;
+    text-align: center;
+    padding: 5%;
+    width: 100%;
+    color: $color_4;
+    background-color: $color_17;
+
+
+}
+
 
 .spinners {
     text-align: center;
@@ -248,11 +252,12 @@ body {
 
 .opisListy {
     display: flex;
-    position: fixed;
     width: 100%;
-    top: 0;
+    position: fixed;
     left: 0;
-    height: 5vh;
+    height: 35px;
+
+    top: 50px;
     font-size: .6em;
     align-items: center;
     border-bottom: 1px solid $color_17;
@@ -283,10 +288,20 @@ body {
     }
 }
 
+.wrapperTabela,
+.wrapperZadania {
+    width: 100%;
+    margin-top: 50px;
+}
+
 .wrapperZadania_ {
-    padding: 5vh 0 15% 0;
+
     width: 100%;
     height: auto;
+
+    .wrapperLista_ {
+        margin-top: 85px;
+    }
 
     .wrapperLista {
         display: flex;
@@ -295,7 +310,7 @@ body {
         width: 100%;
         color: $color_5;
         background-color: $color_2;
-        padding: 3% 0;
+        padding: 0;
 
         border-bottom: 1px solid $color_17;
 
@@ -516,4 +531,11 @@ body {
 
 .drawer {
     width: 800px;
+}
+
+.HomePage {
+
+    width: 100%;
+    height: 100%;
+    padding: 5%
 }

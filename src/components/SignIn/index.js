@@ -91,7 +91,7 @@ class SignInFormBase extends Component {
                                 disabled={isInvalid}
                                 type="submit">Login</MDBBtn>
                             {error && <p style={{ paddingTop: 20 }}
-                            >Błędna hasło. Spróbój ponownie.</p>}
+                            >Błędna hasło. Spróbuj ponownie.</p>}
 
                         </div>
                     </form>
