@@ -4,16 +4,23 @@ import { withAuthorization } from '../Session';
 import { withFirebase } from '../Firebase';
 import { Redirect, } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
-
-
-
-
+import { MDBIcon } from "mdbreact";
+import {
+  MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBPopover, MDBPopoverBody,
+  MDBPopoverHeader, MDBTooltip
+} from 'mdbreact';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 class Zlecenie extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       users: null,
+      modal14: false,
+      checkedA: true,
     };
   }
 
@@ -131,18 +138,41 @@ class MessagesBase extends Component {
     }
   };
 
+  toggle = nr => () => {
+    let modalNumber = 'modal' + nr
+    this.setState({
+      [modalNumber]: !this.state[modalNumber]
+    });
+  }
+
+
+
 
   render() {
     if (this.state.ok === true) {
       return <Redirect to={ROUTES.ZADANIADOWYKONANIA} />
     }
+    const {
+      model,
+      osoba,
+      passwordOne,
+      passwordTwo,
+
+    } = this.state;
+
+    const isInvalid =
+      // passwordOne !== passwordTwo ||
+      // passwordOne === '' ||
+      osoba === '' ||
+      model === '';
     return (
       <>
 
         <div className='zadania_'>
           <section className="zadania__">
             <h1>Wprowadź zlecenie </h1>
-            <form className="zadania___" onSubmit={this.handleSubmit}>
+            <form className="zadania___" >
+
               <div className="form">
                 <div className=" form-group">
                   <p>Data zlecenia</p>
@@ -164,7 +194,7 @@ class MessagesBase extends Component {
                     <label htmlFor="model">
                       <input
                         placeholder="Model"
-                        className="form-control"
+                        className="form-control inputWymagany"
                         type="text"
                         id="model"
                         name="model"
@@ -176,11 +206,11 @@ class MessagesBase extends Component {
                     <label htmlFor="vin">
                       <input
                         placeholder="VIN"
-                        className="form-control"
+                        className="form-control "
                         type="text"
                         id="vin"
                         name="vin"
-                        value={this.state.vin}
+                        value={this.state.vin.toUpperCase()}
                         onChange={this.handleChange}
                       />
                     </label>
@@ -204,7 +234,7 @@ class MessagesBase extends Component {
                     <label htmlFor="osoba">
                       <input
                         placeholder="Imię i Nazwisko"
-                        className="form-control"
+                        className="form-control inputWymagany"
                         type="text"
                         id="osoba"
                         name="osoba"
@@ -219,7 +249,7 @@ class MessagesBase extends Component {
                         type="text"
                         id="nrDo"
                         name="nrDo"
-                        value={this.state.nrDo}
+                        value={this.state.nrDo.toUpperCase()}
                         onChange={this.handleChange}
                       />
                     </label>
@@ -230,7 +260,7 @@ class MessagesBase extends Component {
                         type="text"
                         id="nrAuto"
                         name="nrAuto"
-                        value={this.state.nrAuto}
+                        value={this.state.nrAuto.toUpperCase()}
                         onChange={this.handleChange}
                       />
                     </label>
@@ -241,7 +271,7 @@ class MessagesBase extends Component {
                         type="text"
                         id="nrPrzyczepa"
                         name="nrPrzyczepa"
-                        value={this.state.nrPrzyczepa}
+                        value={this.state.nrPrzyczepa.toUpperCase()}
                         onChange={this.handleChange}
                       />
                     </label>
@@ -291,34 +321,49 @@ class MessagesBase extends Component {
                 </div>
                 <div className="wrapperCmr" >
                   <div className="wrapperChecbox">
-                    <label className=" " htmlFor="cmr">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id="cmr"
-                        name="cmr"
-                        checked={this.state.cmr}
-                        onChange={this.handleChange}
-                      />
-                      CMR
-                        </label>
-                    <label className=" " htmlFor="faktura">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id="faktura"
-                        name="faktura"
-                        checked={this.state.faktura}
-                        onChange={this.handleChange}
-                      />
-                      Faktura
-                        </label>
-                  </div>
+                    <FormControlLabel
+                      checked={this.state.cmr}
+                      onChange={this.handleChange}
+                      control={<Checkbox color="primary" />}
+                      label="CMR "
+                      type="checkbox"
+                      id="cmr"
+                      name="cmr"
+                    />
 
+
+                    <FormControlLabel
+                      checked={this.state.faktura}
+                      onChange={this.handleChange}
+                      control={<Checkbox color="primary" />}
+                      label="Faktura "
+                      type="checkbox"
+                      id="faktura"
+                      name="faktura"
+                    />
+
+                  </div>
                 </div>
-                <button >Zapisz</button>
+                <div>
+                  <Tooltip title="Pola szare są wymagane" placement="top">
+                    <span>
+                      <MDBBtn outline disabled={isInvalid}
+                        onClick={this.toggle(14)}
+
+                      ><MDBIcon icon="save" className="mr-1" /> Zapisz </MDBBtn></span>
+                  </Tooltip>
+                  <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
+                    <MDBModalHeader toggle={this.toggle(14)}>Nie wprowadziłyś wszystkich danych. <br /> Czy chcesz zapisać zlecenie.  </MDBModalHeader>
+                    <MDBModalFooter>
+                      <MDBBtn size="sm" outline onClick={this.toggle(14)}>Wróć</MDBBtn>
+                      <MDBBtn size="sm" outline onClick={this.handleSubmit}>Tak  </MDBBtn>
+                    </MDBModalFooter>
+                  </MDBModal>
+                </div>
+
               </div>
             </form>
+
           </section>
         </div>
       </>

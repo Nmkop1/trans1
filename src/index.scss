@@ -118,6 +118,10 @@ body {
     background-color: $color_4;
     border: 1px solid $color_1;
 
+    .inputWymagany {
+        background-color: $color_18
+    }
+
     .form-group {
         display: flex;
         flex-direction: column;
@@ -134,9 +138,12 @@ body {
             width: 95%;
 
             input {
-                margin-bottom: 2%;
+                margin-bottom: 3%;
             }
         }
+
+
+
 
         .wrapperOstatnie {
             display: flex;
@@ -165,17 +172,15 @@ body {
             width: 50%;
             height: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: flex-start;
             margin-bottom: 5%;
-            flex-direction: column;
 
-
-            label {
-                display: block;
-                padding: 10px 0;
-                margin-left: 40%;
+            .MuiIconButton-colorPrimary {
+                color: $color_17 !important
             }
+
+
         }
 
 
@@ -240,6 +245,8 @@ body {
 
     }
 }
+
+
 
 .fetch2 {
     width: 100%;
@@ -510,9 +517,14 @@ body {
     }
 }
 
-.btn-default {
+.btn {
+    margin: 0;
     background-color: $color_17 !important;
+    color: $color_4 !important;
+    text-transform: none;
 }
+
+.btn-default {}
 
 
 
@@ -534,8 +546,25 @@ body {
 }
 
 .HomePage {
-
+    margin-top: 30%;
     width: 100%;
     height: 100%;
     padding: 5%
+}
+
+.modal {
+    background-color: $color_18;
+
+    .modal-header {
+        .modal-title {
+            margin-top: 10%;
+        }
+
+        .close {
+            width: auto;
+            padding: 2%
+        }
+
+
+    }
 }

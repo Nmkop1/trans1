@@ -1,53 +1,21 @@
-import { withAuthorization } from '../Session';
+import React from 'react';
+import { compose } from 'recompose';
 
-import { lifecycle } from 'recompose';
-import React, { Component } from 'react';
-import uuid from 'uuid/v4';
+import { withAuthorization, withEmailVerification } from '../Session';
+import Messages from '../Messages';
 
+const HomePage = () => (
+  <div className="HomePage">
+    <h1>Home Page</h1>
+    <p>The Home Page is accessible by every signed in user.</p>
 
-
-
-
-
-
-class HomePage extends Component {
-  state = {
-    flaga: true
-  }
-  handleClick = () => {
-
-    this.setState({
-      flaga: !this.state.flaga
-
-    })
-  }
-
-  render() {
-    return (
-      <>
-
-        <button onClick={this.handleClick}>{this.state.flaga ? "JEST" : "BRAK"}</button>
-        <h1>{this.state.flaga ? "JEST" : null}</h1>
-      </>
-    );
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <Messages />
+  </div>
+);
 
 const condition = authUser => !!authUser;
-export default withAuthorization(condition)(HomePage);
 
+export default compose(
+  withEmailVerification,
+  withAuthorization(condition),
+)(HomePage);

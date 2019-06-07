@@ -165,17 +165,13 @@ class MessagesBase extends Component {
   }
 
   render() {
-
-
     const expandRow = {
       onlyOneExpanding: true,
 
       renderer: row => (
-
         < div >
           <MDBContainer>
             <MDBCard
-
               style={{
                 width: "5rem",
                 marginTop: ".5rem",
@@ -188,7 +184,6 @@ class MessagesBase extends Component {
                 <MDBListGroupItem> <h1>{`Zał.`} </h1>  <p>{`${row.dataZaladunku}`}</p></MDBListGroupItem>
                 <MDBListGroupItem> <h1>{`Roz.`} </h1>  <p>{`${row.dataRozladunku}`}</p></MDBListGroupItem>
                 <MDBListGroupItem> <h1>{`Uwagi`} </h1>  <p>{`${row.uwagi}`}</p></MDBListGroupItem>
-
               </MDBListGroup>
 
             </MDBCard>
@@ -198,14 +193,11 @@ class MessagesBase extends Component {
                 <MDBListGroupItem> <h1>{`Prz.`} </h1>  <p>{`${row.nrPrzyczepa}`}</p></MDBListGroupItem>
                 <MDBListGroupItem> <h1>{`CMR`} </h1> {!row.cmr ? <p>{`TAK`}</p> : <p>{`NIE`}</p>}</MDBListGroupItem>
                 <MDBListGroupItem> <h1>{`Faktura`} </h1> {!row.cmr ? <p>{`TAK`}</p> : <p>{`NIE`}</p>}</MDBListGroupItem>
-
-
               </MDBListGroup>
             </MDBCard>
-
           </MDBContainer>
-          <MDBListGroup>
 
+          <MDBListGroup>
             <MDBBtn size="sm" outline onClick={this.toggle(14)}>Wykonano</MDBBtn>
             <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
               <MDBModalHeader toggle={this.toggle(14)}>Czy uznajesz zlecenie z dnia <br />{row.dataZlecenia} za wykonane.</MDBModalHeader>
@@ -215,8 +207,6 @@ class MessagesBase extends Component {
               </MDBModalFooter>
             </MDBModal>
           </MDBListGroup>
-
-
         </div >
       ),
       showExpandColumn: true,
@@ -271,7 +261,6 @@ class MessagesBase extends Component {
         {
           this.state.spinners ? <CircularIndeterminate /> :
             <BootstrapTable
-
               bootstrap4
               keyField='id'
               data={zadania}
@@ -283,7 +272,6 @@ class MessagesBase extends Component {
               tabIndexCell// obramowanie na komórce
               pagination={paginationFactory(options)}
               defaultSorted={defaultSorted}
-
               headerClasses="header-class"// clasa nagłowka
             />
         }

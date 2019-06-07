@@ -29,7 +29,7 @@ class SignUpFormBase extends Component {
             ...INITIAL_STATE,
             wyk: false
         };
-        console.log(this.state.wyk)
+
     }
 
     onSubmit = event => {
@@ -51,7 +51,7 @@ class SignUpFormBase extends Component {
                             wyk: true
                         });
                         this.props.history.push(ROUTES.HOME);
-                        console.log(this.state.wyk)
+
                     })
                     .catch(error => {
                         this.setState({ error });

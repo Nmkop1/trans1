@@ -25,6 +25,7 @@ import Zlecenie from '../Zlecenie';
 import DoWykonania from '../ZadaniaDoWykonania';
 import Wykonane from '../Wykonane';
 import Tabela from '../Tabela';
+
 const App = () => (
     <Router>
         <div className="wrapper">
@@ -91,7 +92,7 @@ class Hamurger extends Component {
                 {!openLeft &&
                     <Drawer
                         right
-
+                        fadeOut={true}
                         {...drawerProps}
                         open={openRight}
                         onChange={open => this.setState({ openRight: open })}

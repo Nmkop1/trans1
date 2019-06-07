@@ -20,11 +20,12 @@ const NavigationAuth = () => (
         <div className="nav">
             <NavLink exact to={ROUTES.LANDING}>Landing</NavLink>
             <NavLink to={ROUTES.HOME}>Home</NavLink>
-            {/* <NavLink to={ROUTES.ADMIN}>Admin</NavLink> */}
+            <NavLink to={ROUTES.ACCOUNT}>Account</NavLink>
             <NavLink to={ROUTES.ZLECENIE}>Zlecenie</NavLink>
             <NavLink to={ROUTES.ZADANIADOWYKONANIA}>Lista</NavLink>
             <NavLink to={ROUTES.WYKONANE}>Wykonane</NavLink>
             <NavLink to={ROUTES.TABELA}>Tabela</NavLink>
+
         </div>
         <SignOutButton />
     </div>
