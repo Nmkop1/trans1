@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-class MessageItem extends Component {
+class NowyItem extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       editMode: false,
       editText: this.props.message.text,
+      editModel: this.props.message.model,
     };
   }
 
@@ -14,17 +15,27 @@ class MessageItem extends Component {
     this.setState(state => ({
       editMode: !state.editMode,
       editText: this.props.message.text,
+      editModel: this.props.message.model,
     }));
   };
 
   onChangeEditText = event => {
-    this.setState({ editText: event.target.value });
+    this.setState({
+      editText: event.target.value,
+      editModel: event.target.value,
+    });
   };
 
   onSaveEditText = () => {
-    this.props.onEditMessage(this.props.message, this.state.editText);
+    this.props.onEditMessage(
+      this.props.message,
+      this.state.editText,
 
-    this.setState({ editMode: false });
+    );
+
+    this.setState({
+      editMode: false
+    });
   };
 
   render() {
@@ -41,7 +52,8 @@ class MessageItem extends Component {
           />
         ) : (
             <span>
-              <strong>{message.userId}</strong> {message.text}
+              <strong>{message.userId}</strong> {message.text} <br />
+              {message.model}
               {message.editedAt && <span>(Edited)</span>}
             </span>
           )}
@@ -72,4 +84,4 @@ class MessageItem extends Component {
   }
 }
 
-export default MessageItem;
+export default NowyItem;

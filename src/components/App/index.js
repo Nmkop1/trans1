@@ -25,6 +25,7 @@ import Zlecenie from '../Zlecenie';
 import DoWykonania from '../ZadaniaDoWykonania';
 import Wykonane from '../Wykonane';
 import Tabela from '../Tabela';
+import Nowy from '../Nowy';
 
 const App = () => (
     <Router>
@@ -37,6 +38,7 @@ const App = () => (
             <Route exact path={ROUTES.ZADANIADOWYKONANIA} component={DoWykonania} />
             <Route exact path={ROUTES.WYKONANE} component={Wykonane} />
             <Route exact path={ROUTES.TABELA} component={Tabela} />
+            <Route exact path={ROUTES.NOWY} component={Nowy} />
             <Route
                 exact
                 path={ROUTES.PASSWORD_FORGET}

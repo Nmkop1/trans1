@@ -4,10 +4,10 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import "../../index.scss";
-import { ClipLoader } from 'react-spinners';
+
 import { withAuthorization, } from '../Session';
 import { withFirebase } from '../Firebase';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { Link, Redireact } from 'react-router-dom';
 import PunktListy from "./PunktListy"
 
@@ -142,7 +142,7 @@ class MessagesBase extends Component {
   render() {
 
     return (
-      <>
+      <>{this.state.spinners ? <CircularIndeterminate /> :
         <div>
           <div className="opisListy">
             <div></div>
@@ -166,6 +166,7 @@ class MessagesBase extends Component {
             />
           </div>
         </div>
+      }
       </>
     );
   }
@@ -218,3 +219,15 @@ const ListaWykonane = (props) => {
 }
 
 
+const CircularIndeterminate = () => {//spinners
+  const styles = theme => ({
+    progress: {
+      margin: theme.spacing.unit * 2,
+    },
+  });
+  return (
+    <div className="spinners">
+      <CircularProgress className="spin" />
+    </div>
+  );
+}

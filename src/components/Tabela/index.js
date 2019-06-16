@@ -17,8 +17,7 @@ import {
 } from '../Session';
 import { withFirebase } from '../Firebase';
 
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { MDBCard, MDBListGroup, MDBListGroupItem, MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBTooltip } from "mdbreact";
@@ -303,8 +302,8 @@ function CircularIndeterminate() {//spinners
     },
   });
   return (
-    <div>
-      <CircularProgress className={styles.progress} />
+    <div className="spinners">
+      <CircularProgress className="spin" />
     </div>
   );
 }

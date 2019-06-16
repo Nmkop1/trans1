@@ -20,6 +20,8 @@ const NavigationAuth = () => (
         <div className="nav">
             <NavLink exact to={ROUTES.LANDING}>Landing</NavLink>
             <NavLink to={ROUTES.HOME}>Home</NavLink>
+            <NavLink to={ROUTES.ADMIN}>ADmin</NavLink>
+            <NavLink to={ROUTES.NOWY}>Nowy</NavLink>
             <NavLink to={ROUTES.ACCOUNT}>Account</NavLink>
             <NavLink to={ROUTES.ZLECENIE}>Zlecenie</NavLink>
             <NavLink to={ROUTES.ZADANIADOWYKONANIA}>Lista</NavLink>

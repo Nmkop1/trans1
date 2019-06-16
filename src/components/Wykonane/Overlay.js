@@ -74,11 +74,13 @@ class Overlay extends Component {
                                         />
                                     ) : (
                                             <span>
-                                                <span>
-                                                    {zadanie.model}
-                                                </span>
+                                                <strong>{zadanie.userId}</strong>
+                                                {zadanie.model}
+                                                {zadanie.editedAt && <span>(Edited)</span>}
+
                                             </span>
                                         )}
+
                                     {editMode ? (
                                         <span>
                                             <div onClick={onSaveEditText}><MDBIcon icon="save" /></div>

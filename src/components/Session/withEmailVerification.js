@@ -29,32 +29,33 @@ const withEmailVerification = Component => {
         <AuthUserContext.Consumer>
           {authUser =>
             needsEmailVerification(authUser) ? (
-              <div>
+              <div className="HomePage">
                 {this.state.isSent ? (
                   <p>
-                    E-Mail confirmation sent: Check your E-Mails (Spam
-                    folder included) for a confirmation E-Mail.
-                    Refresh this page once you confirmed your E-Mail.
+                    Wysłano potwierdzenie e-mailem: sprawdź wiadomości e-mail (spam)
+                    w folderze), aby potwierdzić wiadomość e-mail.
+                    Odśwież tę stronę po potwierdzeniu wiadomości e-mail.
                   </p>
                 ) : (
-                  <p>
-                    Verify your E-Mail: Check your E-Mails (Spam folder
-                    included) for a confirmation E-Mail or send
-                    another confirmation E-Mail.
+                    <p>
+
+                      Zweryfikuj pocztę e-mail: sprawdź wiadomości e-mail (folder spamu)
+                                            w zestawie) do potwierdzenia e-mailem lub wysłać
+                                            kolejny e-mail z potwierdzeniem.
                   </p>
-                )}
+                  )}
 
                 <button
                   type="button"
                   onClick={this.onSendEmailVerification}
                   disabled={this.state.isSent}
                 >
-                  Send confirmation E-Mail
+                  Wyślij wiadomość e-mail z potwierdzeniem
                 </button>
               </div>
             ) : (
-              <Component {...this.props} />
-            )
+                <Component {...this.props} />
+              )
           }
         </AuthUserContext.Consumer>
       );

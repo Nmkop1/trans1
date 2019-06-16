@@ -117,6 +117,7 @@ class Overlay extends Component {
                                             onChange={onChangeEditDataZaladunku}
                                         />
                                     ) : (
+
                                             <span>
                                                 <span>
                                                     {zadanie.dataZaladunku}

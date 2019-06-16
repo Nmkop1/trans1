@@ -10,7 +10,7 @@ import { withFirebase } from '../Firebase';
 
 
 import PunktListy from "./PunktListy"
-import { Link, Redirect, Route } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 
 
@@ -144,9 +144,9 @@ class MessagesBase extends Component {
 
 
   render() {
-    // if (this.state.ok === true) {
-    //   return <Redirect to={ROUTES.HOME1} />
-    // }
+    if (this.state.ok === true) {
+      return <Redirect to={ROUTES.WYKONANE} />
+    }
     const Spinners = () => (
       <div className='spinners'>
         <ClipLoader
@@ -156,6 +156,7 @@ class MessagesBase extends Component {
         />
       </div>//https://reactjsexample.com/a-collection-of-loading-spinner-components-for-react/
     );
+
     return (
 
       <>

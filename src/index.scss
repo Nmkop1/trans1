@@ -111,7 +111,15 @@ body {
 
 
 .spinners {
-    text-align: center;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+    .spin {
+        color: $color_17
+    }
 }
 
 .form {

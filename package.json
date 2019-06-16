@@ -18,7 +18,8 @@
     "react-spinners": "^0.5.4",
     "recompose": "^0.30.0",
     "sass": "^1.20.1",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "wired-button": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
